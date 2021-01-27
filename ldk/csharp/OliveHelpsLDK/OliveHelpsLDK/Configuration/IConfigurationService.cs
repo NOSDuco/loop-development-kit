@@ -1,9 +1,9 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace OliveHelpsLDK.Storage
+namespace OliveHelpsLDK.Configuration
 {
-    public interface IStorageService
+    public interface IConfigurationService
     {
         Task<bool> HasKey(string key, CancellationToken cancellationToken = default);
         Task<string> Read(string key, CancellationToken cancellationToken = default);

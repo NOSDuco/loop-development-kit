@@ -4,7 +4,7 @@ using OliveHelpsLDK.Filesystem;
 using OliveHelpsLDK.Keyboard;
 using OliveHelpsLDK.Network;
 using OliveHelpsLDK.Process;
-using OliveHelpsLDK.Storage;
+using OliveHelpsLDK.Configuration;
 using OliveHelpsLDK.UI;
 using OliveHelpsLDK.Whispers;
 using OliveHelpsLDK.Window;
@@ -35,7 +35,7 @@ namespace OliveHelpsLDK
 
         IWindowService Window { get; }
 
-        IStorageService Storage { get; }
+        IConfigurationService Configuration { get; }
 
         IUIService UI { get; }
     }
