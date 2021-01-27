@@ -1,0 +1,49 @@
+syntax = "proto3";
+package proto;
+option go_package = ".;proto";
+
+import "google/protobuf/empty.proto";
+import "session.proto";
+
+service Configuration {
+    // Delete the value of a specific key
+    rpc ConfigurationDelete(ConfigurationDeleteRequest) returns (google.protobuf.Empty);
+
+    // Check in configuration storage to determine if a key has a value
+    rpc ConfigurationExists(ConfigurationExistsRequest) returns (ConfigurationExistsResponse);
+        
+    // Read the value of a specific configuration key
+    rpc ConfigurationRead(ConfigurationReadRequest) returns (ConfigurationReadResponse);
+        
+    // Write the value of a key to configuration storage
+    rpc ConfigurationWrite(ConfigurationWriteRequest) returns (google.protobuf.Empty);
+}
+
+message ConfigurationExistsRequest {
+    Session session = 1;
+    string key = 2;
+}
+
+message ConfigurationExistsResponse {
+    bool exists = 1;
+}
+
+message ConfigurationReadRequest {
+    Session session = 1;
+    string key = 2;
+}
+
+message ConfigurationReadResponse {
+    string value = 1;
+}
+
+message ConfigurationDeleteRequest {
+    Session session = 1;
+    string key = 2;
+}
+
+message ConfigurationWriteRequest {
+    Session session = 1;
+    string key = 2;
+    string value = 3;
+}

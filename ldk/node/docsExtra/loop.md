@@ -114,13 +114,13 @@ this.services.whisper.updateWhisper(whisperId,
 );
 ```
 
-### Storage
+### Configuration
 
-You can store and retrieve user credentials and other data with the {@link StorageService} accessible from {@link HostServices.storage}.
+You can store and retrieve user credentials and other data with the {@link ConfigurationService} accessible from {@link HostServices.configuration}.
 
 ```javascript
 
 const key = 'user-id';
-const result = await this.services.storage.storageRead(key);
-await this.services.storage.storageWrite(key, "abcd");
+const result = await this.services.configuration.configurationRead(key);
+await this.services.configuration.configurationWrite(key, "abcd");
 ```

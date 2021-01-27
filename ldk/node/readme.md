@@ -77,69 +77,7 @@ Olive Helps logs are available in the following directories for your OS:
 
 ## Deploying
 
-Olive Helps expects the following files when running a plugin:
-
-`plugin` - An executable that runs your plugin.
-`plugin.json` - Your plugin configuration file.
-`storage.json` - Your storage configuration file.
-
-### Commands
-
-We've made the following commands available to you:
-
-```shell
-ldk build # Builds your project. Expects that you have index.js as your entry point, plugin.json, storage.json files.
-```
-
-Each command takes options. Run `ldk help <command>` for details.
-
-### Configuration
-
-#### `plugin.json`
-
-```json
-{
-  "author": "Your Name",
-  "created": "2020-06-22T00:00:00Z",
-  "dependencies": [],
-  "description": "Your Loop's Description",
-  "id": "A UNIQUE UUID",
-  "name": "Your Loop Name",
-  "organization": "Your Organization",
-  "specification": "1",
-  "updated": "2020-07-23T00:00:00Z",
-  "version": "Version Number (preferably SemVer)"
-}
-```
-
-#### `storage.json`
-
-Each storage key you access must be specified in the `storage.json` file.
-
-```json
-{
-  "storage-key": {
-    "name": "Storage Key Name",
-    "description": "What you're containing in this key"
-  },
-  "storage-key2": {
-    "name": "Storage Key 2",
-    "description": "What you're containing in this key"
-  }
-}
-```
-
 ## Concepts
-
-### Plugins
-
-The LDK is a plugin system for Olive Helps. The LDK is built with [go-plugin](https://github.com/hashicorp/go-plugin), a HashiCorp plugin system used in several of their projects.
-
-Plugins developed with this library are executed by Olive Helps as separate processes. This ensures that crashes or instability in the plugin will not destabilize the Olive Helps process.
-
-Communication between Olive Helps and the plugin is first initialized over stdio and then performed using [GRPC](https://grpc.io/). On mac and linux the GRPC communication is sent over unix domain socket and on windows over local TCP socket.
-
-> NOTE: Currently, communication from Olive Helps to the plugin, takes place over local TCP socket on mac and linux. Communication from the plugin back to Sidekick still takes place over unix domain socket. This is due to a limitation of the GRPC libraries for NodeJS and will hopefully be fixed in the future.
 
 ### Loops
 

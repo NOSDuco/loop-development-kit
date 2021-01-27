@@ -31,8 +31,8 @@
             "source": "./docsExtra/logging.md"
           },
           {
-            "title": "Storage",
-            "source": "./docsExtra/storage.md"
+            "title": "Configuration",
+            "source": "./docsExtra/configuration.md"
           },
           {
             "title": "Terminology",
